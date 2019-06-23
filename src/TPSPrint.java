@@ -10,7 +10,7 @@ public class TPSPrint implements Runnable {
 		running = true;
 		this.classOperation = classOperation;
 	}
-	
+
 	String filename = null;
 	@SuppressWarnings("rawtypes")
 	public TPSPrint(Class classOperation, String filename) {
@@ -25,7 +25,7 @@ public class TPSPrint implements Runnable {
 		running = false;
 		System.out.println("exit");
 	}
-	
+
 	public void run() {
 		int okCount = 0;
 		int failCount = 0;
@@ -37,7 +37,7 @@ public class TPSPrint implements Runnable {
 				System.out.println("Press q stop test ... "); //按q停止 ...
 				System.out.println("\tTime\t\t\tCorrect speed(TPS)\tAverage error(TPS)\tAverage abnormal(TPS)\tAverage correct speed(TPS)\t"+filename/*.substring(0, filename.lastIndexOf(".txt")).replace('-', '/')*/);
 			}
-			
+
 			okCount = Util.get(classOperation, "okCount");
 			failCount = Util.get(classOperation, "failCount");
 			exCount = Util.get(classOperation, "exCount");
@@ -52,7 +52,7 @@ public class TPSPrint implements Runnable {
 			+ (Util.get(classOperation, "exCount")-exCount)+"\t\t\t\t"
 			+ Util.get(classOperation, "okCount")/(++seconds);
 			System.out.println(msg);
-			
+
 		}
 		running = true;
 	}
